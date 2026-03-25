@@ -7,12 +7,12 @@ def home(request):
     return render(request, 'home.html', context)
 
 def restaurant_list(request):
-    # Veritabanındaki tüm restoranları çek
+    # Veritabanındaki tüm restoranları çekmeye devam eder
     gercek_restoranlar = Restaurant.objects.all() 
     return render(request, 'restaurant_list.html', {'restoranlar': gercek_restoranlar})
 
 def restaurant_detail(request, id):
-    # Sadece tıklanan ID'ye sahip restoranı çek, yoksa 404 hatası ver
+    # Sadece tıklanan ID'ye sahip restoranı çek, yoksa 404 hatası verir
     secilen_mekan = get_object_or_404(Restaurant, id=id)
     return render(request, 'restaurant_detail.html', {'mekan': secilen_mekan})
 
